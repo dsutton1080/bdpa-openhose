@@ -20,15 +20,14 @@ $result=mysqli_query($con, $query);
                    <th>Number of Bags</th>
                </tr>
            <?php 
-           // foreach ($cornProducts as $p) {
            while ($row=mysqli_fetch_array($result)) {
                $prodName = $row['product_name'];
                $product_id = $row['product_id'];
                $price = $row['price'];
+               // gets the reults/data from the array and asigns them to new variables on the current page 
     echo "<form action='addtoorder.php' method='GET'>";
                echo "<tr>";
     echo "<td>" . $prodName . "</td><td>$" . $price . "</td><td><input type='text' name ='qty'>";
-    //echo "<td><a href = 'productdetails.php?prodName=" . $prodName . "'><button> Add to ORDER </button></a></td>";
     echo "<input type='hidden' name='product' value='$product_id'>";
     echo "<td> <input type='submit' value='Add to Order'></td>" ;
     echo "</tr>";
